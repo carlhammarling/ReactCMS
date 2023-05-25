@@ -4,11 +4,15 @@ import axios from "axios";
 import "./ProductDetails.scss";
 import RedBtn from "../../components/Buttons/RedBtn/RedBtn";
 import WhiteBtn from "../../components/Buttons/WhiteBtn/WhiteBtn";
+import OneProduct from "../../components/OneProduct/OneProduct";
+import EditProductForm from "../../components/EditProductForm/EditProductForm";
 
 const ProductDetails = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState([]);
+
+  const [showInputs, setShowInputs] = useState(false);
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/products/" + id).then((res) => {
@@ -16,7 +20,7 @@ const ProductDetails = () => {
       setProduct(res.data);
     });
     console.log(product);
-  }, []);
+  }, [showInputs]);
 
   //Otherwise show this
   return (
@@ -34,42 +38,12 @@ const ProductDetails = () => {
           <div className="detailsDescription">
             <h2>Details for {product.name}</h2>
           </div>
-          <div className="details">
-            <div className="propLine">
-              <p>Title: </p>
-              <p>{product.name}</p>
-            </div>
-            <div className="propLine">
-              <p>Description: </p>
-              <p>{product.description}</p>
-            </div>
-            <div className="propLine">
-              <p>Category: </p>
-              <p>{product.category}</p>
-            </div>
-            <div className="propLine">
-              <p>Price: </p>
-              <p>{product.price}</p>
-            </div>
-            <div className="propLine">
-              <p>ID: </p>
-              <p>{product._id}</p>
-            </div>
-            <div className="propLine">
-              <p>Created: </p>
-              <p>{product.createdAt}</p>
-            </div>
-            <div className="propLine">
-              <p>Image URL: </p>
-              <p>{product.imgURL}</p>
-            </div>
-            
-          </div>
+          {showInputs ? (
+            <EditProductForm product={product} setShowInputs={setShowInputs} />
+          ) : (
+            <OneProduct product={product} setShowInputs={setShowInputs} />
+          )}
 
-          <div className="buttons">
-            <WhiteBtn text="Edit Product"/>
-            <RedBtn text="Delete Product" />
-          </div>
         </div>
       </div>
     </div>

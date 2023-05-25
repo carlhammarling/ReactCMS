@@ -1,0 +1,68 @@
+$lightestGray: #f8f8f8;
+$lightGray: #e8e6e6;
+$medGray: #aeaeae;
+$navGray: #636363;
+$plusRed: #fa3150;
+
+$darkHeading: #292929;
+$starYellow: #ffb71b;
+$ash: #92b8b9;
+
+.login {
+  display: flex;
+  justify-content: center;
+
+  .wrapper {
+    height: 400px;
+    width: 900px;
+    // background-color: #fff;
+    box-shadow: 0 0 30px #f1f1f1;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    color: #636363;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: .3rem;
+    padding: 2rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+
+    .header {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: .2rem;
+      background-color: $lightestGray
+    }
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    .error {
+      color: $plusRed;
+    }
+
+    button {
+      max-width: 150px;
+    }
+  }
+}

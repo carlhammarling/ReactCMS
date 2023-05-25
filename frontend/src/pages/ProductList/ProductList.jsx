@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "./ProductList.scss";
 import ProductLine from "../../components/ProductLine/ProductLine";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   //   const token = localStorage.getItem("token");
@@ -11,17 +12,17 @@ const ProductList = () => {
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/products").then((res) => {
-      console.log(res.data.allProducts);
       setProducts(res.data.allProducts);
     });
-    console.log(products);
   }, []);
 
   return (
     <div className="productList">
       <div className="productListContainer">
         <div className="productLineDescription">
-          <div></div>
+          <div>
+            <Link to="/add">ADD NEW</Link>
+          </div>
           <div>
             <p>Product name</p>
           </div>
