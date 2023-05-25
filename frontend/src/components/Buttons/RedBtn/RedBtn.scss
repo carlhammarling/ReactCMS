@@ -1,0 +1,27 @@
+$lightestGray: #f8f8f8;
+$lightGray: #e8e6e6;
+$medGray: #aeaeae;
+$navGray: #636363;
+$plusRed: #fa3150;
+
+$darkHeading: #292929;
+$starYellow: #ffb71b;
+$ash: #92b8b9;
+
+
+.redBtn {
+    margin-left: 20px;
+    height: 48px;
+    padding-inline: 22px;
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: $darkHeading;
+    cursor: pointer;
+
+    transition: .4s;
+
+    &:hover {
+        background-color: $plusRed;
+    }
+}

@@ -1,0 +1,56 @@
+$lightestGray: #F8F8F8;
+$lightGray: #e8e6e6;
+$medGray: #aeaeae;
+$navGray: #636363;
+$plusRed: #fa3150;
+
+$darkHeading: #292929;
+$starYellow: #ffb71b;
+$ash: #92B8B9;
+
+
+
+.home {
+
+    background-image: url('https://images.pexels.com/photos/1228514/pexels-photo-1228514.jpeg');
+    background-size: cover;
+    background-position: center 90%;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        margin-bottom: 15px;
+        color: $darkHeading
+    }
+    
+    ul {
+        display: flex;
+    
+        li {
+            list-style: none;
+            color: $navGray;
+            font-size: 18px;
+            margin-bottom: 3rem;
+    
+            &:last-child {
+                padding-left: 15px;
+            }
+    
+            a {
+                color: $navGray;
+                text-decoration: none;
+                transition: .4s;
+    
+                &:hover {
+                    color: $plusRed;
+                }
+            }
+        }
+    }
+    
+    
+}
+

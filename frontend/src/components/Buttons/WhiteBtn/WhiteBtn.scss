@@ -1,0 +1,26 @@
+$lightestGray: #f8f8f8;
+$lightGray: #e8e6e6;
+$medGray: #aeaeae;
+$navGray: #636363;
+$plusRed: #fa3150;
+
+$darkHeading: #292929;
+$starYellow: #ffb71b;
+$ash: #92b8b9;
+
+.whiteBtn {
+    background-color: white;
+    border: 1px solid $lightGray;
+    height: 48px;
+    padding-inline: 22px;
+    font-size: 16px;
+    transition: .4s;
+    margin-bottom: 26px;
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+        background-color: $darkHeading;
+        border: 1px solid $darkHeading;
+    }
+}
