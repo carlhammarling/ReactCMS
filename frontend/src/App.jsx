@@ -6,7 +6,9 @@ import Login from './pages/Login/Login'
 import ProductList from './pages/ProductList/ProductList'
 import OrderList from './pages/OrderList/OrderList'
 import ProductDetails from './pages/ProductDetails/ProductDetails'
+import OrderDetails from './pages/OrderDetails/OrderDetails'
 import AddProduct from './pages/AddProduct/AddProduct'
+
 
 const App = () => {
 
@@ -29,6 +31,10 @@ const App = () => {
         {
           path: '/products/:id',
           element: <ProductDetails />
+        },
+        {
+          path: '/orders/:id',
+          element: <OrderDetails />
         },
         {
           path: '/add',

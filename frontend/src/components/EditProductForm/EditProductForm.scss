@@ -7,6 +7,8 @@ $plusRed: #fa3150;
 $darkHeading: #292929;
 $starYellow: #ffb71b;
 $ash: #92b8b9;
+$successGreen: #06c595;
+
 
 .input-group {
     display: grid;
@@ -60,5 +62,5 @@ $ash: #92b8b9;
   }
 }
 .success {
-  background-color: green !important;
+  background-color: $successGreen !important;
 }

@@ -1,21 +1,15 @@
 import React from 'react'
 import './OrderLine.scss'
+import { Link } from "react-router-dom";
 
-const OrderLine = () => {
+const OrderLine = ({ order }) => {
   return (
-    <div className='orderLine'>
-        {/* <div className='productImg' style={{ backgroundImage: `url("${item.product.imgURL}")` }}></div> */}
-        <div className='productImg'></div>
-        <div>name</div>
-        <div>€ 23</div>
-        <div>4</div>
-        <div>€ 3434</div>
-        {/* <div className='productImg'></div>
-        <div>{item.product.name}</div>
-        <div>€ {item.product.price}</div>
-        <div>{item.quantity}</div>
-        <div>€ {item.product.price * item.quantity}</div> */}
-    </div>
+    <Link to={`/orders/${order._id}`} className='orderLine'>
+        <div>{order._id}</div>
+        <div>{order.createdAt.slice(0,10)}</div>
+        <div>{order.pending ? "Not delivered" : "Delivered"}</div>
+        <div>€ {order.totalPrice}</div>
+    </Link>
   )
 }
 

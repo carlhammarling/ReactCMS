@@ -28,12 +28,30 @@ $ash: #92b8b9;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 1rem;
-    height: 50px;
-
     border-bottom: 1px solid $lightGray;
     justify-content: space-between;
     align-items: center;
     justify-items: center;
+
+    .redBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 48px;
+      min-width: 130px;
+      padding-inline: 22px;
+      border: 0;
+      font-size: 16px;
+      color: white;
+      background-color: $darkHeading;
+      cursor: pointer;
+  
+      transition: 0.4s;
+  
+      &:hover {
+        background-color: $plusRed;
+      }
+    }
 
     &.noLine {
       border-bottom: 0px solid $lightGray;

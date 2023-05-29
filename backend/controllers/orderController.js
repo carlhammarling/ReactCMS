@@ -15,10 +15,10 @@ router.get('/bytoken', auth.verifyToken, orderModel.getOrdersByUser)
 router.get('/', auth.verifyToken, auth.checkAdmin, orderModel.getAllOrders)
 
 //Update order
-router.patch('/:id', orderModel.updateOrder)
+router.patch('/:id', auth.verifyToken, auth.checkAdmin, orderModel.updateOrder)
 
 //Get Single Order
-router.get('/:id', auth.verifyToken, auth.checkAdmin, orderModel.getSingleOrder)
+router.get('/:id', auth.verifyToken, orderModel.getSingleOrder)
 
 //Delete order by id
 

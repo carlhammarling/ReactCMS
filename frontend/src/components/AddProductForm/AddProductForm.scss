@@ -7,17 +7,19 @@ $plusRed: #fa3150;
 $darkHeading: #292929;
 $starYellow: #ffb71b;
 $ash: #92b8b9;
+$successGreen: #06c595;
 
-.input-group {
+
+.addProductForm {
+  .input-group {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    padding-block: .5rem;
+    padding-block: 0.5rem;
     overflow: auto;
 
     input {
-      padding: .2rem;
+      padding: 0.2rem;
     }
-    
 
     & * {
       font-size: 16px;
@@ -36,29 +38,30 @@ $ash: #92b8b9;
     background-color: $darkHeading;
     cursor: pointer;
 
-    transition: .4s;
+    transition: 0.4s;
 
     &:hover {
-        background-color: $plusRed;
-    }
-}
-
-.greenBtn {
-  height: 48px;
-  min-width: 130px;
-  padding-inline: 22px;
-  border: 0;
-  font-size: 16px;
-  color: white;
-  background-color: $darkHeading;
-  cursor: pointer;
-
-  transition: .4s;
-
-  &:hover {
       background-color: $plusRed;
+    }
   }
-}
-.success {
-  background-color: green !important;
+
+  .greenBtn {
+    height: 48px;
+    min-width: 130px;
+    padding-inline: 22px;
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: $darkHeading;
+    cursor: pointer;
+
+    transition: 0.4s;
+
+    &:hover {
+      background-color: $plusRed;
+    }
+  }
+  .success {
+    background-color: $successGreen !important;
+  }
 }

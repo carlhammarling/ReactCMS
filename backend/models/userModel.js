@@ -2,6 +2,7 @@
 const User = require("../schemas/userSchema");
 const bcrypt = require("bcryptjs");
 const auth = require("../authentication/auth");
+const { admins } = require('../authentication/auth')
 
 
 //Register a new user
@@ -96,6 +97,55 @@ const loginUser = async (req, res) => {
   }
 };
 
+//Login Admin
+const loginAdmin = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({
+      message: "Please fill in all fields",
+    });
+  }
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({
+        message: "Incorrect email or password",
+      });
+    }
+
+    bcrypt.compare(password, user.passwordHash, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          message: "Error comparing passwords",
+        });
+      }
+
+      if (!result) {
+        return res.status(401).json({
+          message: "Incorrect email or password",
+        });
+      }
+
+      if (!admins.includes(user._id.toString())) {
+        return res.status(401).json({
+          message: "You need to be an admin to log in",
+        });
+      }
+
+      res.status(200).json({
+        token: auth.generateToken(user),
+      });
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "An error occurred while logging in",
+      error: err.message,
+    });
+  }
+};
 
 //Get user data and orders
 const getUserData = async (req, res) => {
@@ -150,4 +200,5 @@ module.exports = {
   loginUser,
   getUserData,
   getAllUsers,
+  loginAdmin
 };

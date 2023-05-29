@@ -40,7 +40,7 @@ const admins = [
   "6464b795afc711ce49643442",
   "6464cb312c3ce1d87fdbde79",
   "6465ffb9c01e67bbc5915574",
-];
+];  
 
 //req.userId comes from verifyToken
 exports.checkAdmin = (req, res, next) => {
@@ -52,3 +52,7 @@ exports.checkAdmin = (req, res, next) => {
       .json({ message: "You need be an admin to have access to this." });
   }
 };
+
+module.exports.admins = admins;
+
+

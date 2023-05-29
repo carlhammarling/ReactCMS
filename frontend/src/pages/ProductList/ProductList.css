@@ -1,0 +1,61 @@
+.productList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.productList .productListContainer {
+  width: 900px;
+  padding: 1rem;
+  box-shadow: 0 0 30px #f1f1f1;
+  color: #636363;
+}
+.productList .productLineDescription {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 1rem;
+  border-bottom: 1px solid #e8e6e6;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+.productList .productLineDescription .redBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  min-width: 130px;
+  padding-inline: 22px;
+  border: 0;
+  font-size: 16px;
+  color: white;
+  background-color: #292929;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.productList .productLineDescription .redBtn:hover {
+  background-color: #fa3150;
+}
+.productList .productLineDescription.noLine {
+  border-bottom: 0px solid #e8e6e6;
+}
+.productList .productLineDescription p {
+  font-size: 18px;
+  font-weight: 600;
+}
+.productList .productLineTotal {
+  display: flex;
+  padding: 1rem;
+  height: 50px;
+  justify-content: flex-end;
+  align-items: center;
+  justify-items: center;
+  margin-right: 3rem;
+}
+.productList .productLineTotal p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fa3150;
+}/*# sourceMappingURL=ProductList.css.map */

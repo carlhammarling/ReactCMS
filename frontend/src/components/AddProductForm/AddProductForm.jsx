@@ -60,7 +60,7 @@ const AddProductForm = () => {
     }
 
   return (
-    <form noValidate onSubmit={handleSubmit}>
+    <form className='addProductForm' noValidate onSubmit={handleSubmit}>
         <div className="input-group">
             <label htmlFor="name">Title:</label>
             <input id="name" onChange={handleChange} type="text" value={newProduct.name} />

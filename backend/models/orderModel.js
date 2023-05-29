@@ -126,7 +126,10 @@ const updateOrder = async (req, res) => {
 //Get all details of a single product
 const getSingleOrder = async (req,res) => {
   try {
-    const singleOrder = await Order.findById(req.params.id)
+    const singleOrder = await Order.findById(req.params.id).populate({
+      path: "user",
+      select: "email",
+    });
 
     if (!singleOrder) {
       res.status(404).json({

@@ -21,7 +21,9 @@ const ProductList = () => {
       <div className="productListContainer">
         <div className="productLineDescription">
           <div>
-            <Link to="/add">ADD NEW</Link>
+            <Link to="/add" className="redBtn">
+              <i className="fa-solid fa-plus fa-sm"></i> Add New product
+            </Link>
           </div>
           <div>
             <p>Product name</p>

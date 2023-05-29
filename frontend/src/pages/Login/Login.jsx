@@ -35,7 +35,7 @@ function Login({ user, setUser }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/users/login",
+        "http://localhost:8080/api/users/loginadmin",
         formData
       );
       console.log(res);
