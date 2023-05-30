@@ -1,68 +1,37 @@
-$lightestGray: #f8f8f8;
-$lightGray: #e8e6e6;
-$medGray: #aeaeae;
-$navGray: #636363;
-$plusRed: #fa3150;
-
-$darkHeading: #292929;
-$starYellow: #ffb71b;
-$ash: #92b8b9;
-$successGreen: #06c595;
+@use '../../styles/mixins';
+@import '../../styles/variables';
 
 
 .propLine {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    padding-block: .5rem;
-    overflow: auto;
-    
-    &:hover {
-        background-color: $lightestGray;
-    }
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding-block: 0.5rem;
+  overflow: auto;
 
-    & * {
-      font-size: 16px;
-      color: $navGray;
-      padding-right: 5px;
-    }
+  &:hover {
+    background-color: $lightestGray;
   }
 
-  .buttons {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1rem;
-
-    .whiteBtn {
-      background-color: white;
-      border: 1px solid $lightGray;
-      height: 48px;
-      min-width: 130px;
-      padding-inline: 22px;
-      font-size: 16px;
-      transition: 0.4s;
-      margin-bottom: 26px;
-      cursor: pointer;
-
-      &:hover {
-        color: white;
-        background-color: $darkHeading;
-        border: 1px solid $darkHeading;
-      }
-    }
-    .redBtn {
-      height: 48px;
-      min-width: 130px;
-      padding-inline: 22px;
-      border: 0;
-      font-size: 16px;
-      color: white;
-      background-color: $darkHeading;
-      cursor: pointer;
-  
-      transition: .4s;
-  
-      &:hover {
-          background-color: $plusRed;
-      }
+  & * {
+    font-size: 16px;
+    color: $navGray;
+    padding-right: 5px;
   }
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+
+  .whiteBtn {
+    @include mixins.whiteBtn;
   }
+  .redButton {
+    @include mixins.redButton;
+  }
+
+  .warningBtn {
+    @include mixins.warningBtn;
+  }
+}

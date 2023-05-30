@@ -1,12 +1,4 @@
-$lightestGray: #f8f8f8;
-$lightGray: #e8e6e6;
-$medGray: #aeaeae;
-$navGray: #636363;
-$plusRed: #fa3150;
-
-$darkHeading: #292929;
-$starYellow: #ffb71b;
-$ash: #92b8b9;
+@import '../../styles/variables';
 
 .navbar {
   display: flex;
@@ -44,6 +36,16 @@ $ash: #92b8b9;
         color: $navGray;
         text-decoration: none;
         font-size: 15px;
+      }
+
+      button {
+        color: $navGray;
+        text-decoration: none;
+        font-size: 15px;
+        border: 0;
+        background-color: white;
+        display: block;
+        cursor: pointer;
       }
 
       .textLight {

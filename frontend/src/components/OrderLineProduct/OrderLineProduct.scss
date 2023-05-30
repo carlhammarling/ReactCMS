@@ -1,12 +1,4 @@
-$lightestGray: #F8F8F8;
-$lightGray: #e8e6e6;
-$medGray: #aeaeae;
-$navGray: #636363;
-$plusRed: #fa3150;
-
-$darkHeading: #292929;
-$starYellow: #ffb71b;
-$ash: #92B8B9;
+@import '../../styles/variables';
 
 
 .orderLineProduct {
@@ -25,14 +17,11 @@ $ash: #92B8B9;
     }
 
 
-    .productImg {
-        // width:270px;
-        
+    .productImg {     
         height: 70px;
         width: 90px;
         background-image: url('https://images.pexels.com/photos/2494608/pexels-photo-2494608.jpeg');
         background-size: cover;
-        // object-fit: cover;
         background-position: center;
         overflow: hidden;
     }

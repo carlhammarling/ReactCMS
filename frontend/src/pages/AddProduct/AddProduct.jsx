@@ -1,13 +1,19 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { Link, useParams, Navigate } from "react-router-dom";
 import "./AddProduct.scss";
-import RedBtn from "../../components/Buttons/RedBtn/RedBtn";
-import WhiteBtn from "../../components/Buttons/WhiteBtn/WhiteBtn";
 import OneProduct from "../../components/OneProduct/OneProduct";
 import AddProductForm from "../../components/AddProductForm/AddProductForm";
+import { UserContext } from "../../contexts/UserContext";
 
 const AddProduct = () => {
+
+  const { user } = useContext(UserContext)
+
+  if(!user) {
+    //replace removes history
+    return <Navigate to='/' replace />
+
+  }
  
   return (
     <div className="productDetails">

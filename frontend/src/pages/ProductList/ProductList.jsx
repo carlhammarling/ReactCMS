@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "./ProductList.scss";
 import ProductLine from "../../components/ProductLine/ProductLine";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
 const ProductList = () => {
-  //   const token = localStorage.getItem("token");
+
+  const { user } = useContext(UserContext)
+
+  if(!user) {
+    return <Navigate to='/' replace />
+  }
 
   const [products, setProducts] = useState([]);
 
@@ -21,9 +27,7 @@ const ProductList = () => {
       <div className="productListContainer">
         <div className="productLineDescription">
           <div>
-            <Link to="/add" className="redBtn">
-              <i className="fa-solid fa-plus fa-sm"></i> Add New product
-            </Link>
+            <Link to="/add" className="redBtn">Add New product</Link>
           </div>
           <div>
             <p>Product name</p>

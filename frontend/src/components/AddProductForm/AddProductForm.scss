@@ -1,13 +1,5 @@
-$lightestGray: #f8f8f8;
-$lightGray: #e8e6e6;
-$medGray: #aeaeae;
-$navGray: #636363;
-$plusRed: #fa3150;
-
-$darkHeading: #292929;
-$starYellow: #ffb71b;
-$ash: #92b8b9;
-$successGreen: #06c595;
+@use '../../styles/mixins';
+@import '../../styles/variables';
 
 
 .addProductForm {
@@ -29,39 +21,13 @@ $successGreen: #06c595;
   }
 
   .redBtn {
-    height: 48px;
-    min-width: 130px;
-    padding-inline: 22px;
-    border: 0;
-    font-size: 16px;
-    color: white;
-    background-color: $darkHeading;
-    cursor: pointer;
-
-    transition: 0.4s;
-
-    &:hover {
-      background-color: $plusRed;
-    }
-  }
-
-  .greenBtn {
-    height: 48px;
-    min-width: 130px;
-    padding-inline: 22px;
-    border: 0;
-    font-size: 16px;
-    color: white;
-    background-color: $darkHeading;
-    cursor: pointer;
-
-    transition: 0.4s;
-
-    &:hover {
-      background-color: $plusRed;
-    }
+    @include mixins.redButton;
   }
   .success {
     background-color: $successGreen !important;
+  }
+
+  .error {
+    color: $plusRed;
   }
 }

@@ -4,11 +4,12 @@ import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import './RootLayout.scss'
 
-const RootLayout = ({ user, setUser }) => {
+const RootLayout = () => {
   return (
     <div className='wrapper'>
-      <Navbar user={user} setUser={setUser}/>
+      <Navbar />
       <div className="outlet">
+        {/* Should be able to put context here. */}
         <Outlet />
       </div>
       <Footer />

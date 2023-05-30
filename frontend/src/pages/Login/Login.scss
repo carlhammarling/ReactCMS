@@ -1,12 +1,4 @@
-$lightestGray: #f8f8f8;
-$lightGray: #e8e6e6;
-$medGray: #aeaeae;
-$navGray: #636363;
-$plusRed: #fa3150;
-
-$darkHeading: #292929;
-$starYellow: #ffb71b;
-$ash: #92b8b9;
+@import '../../styles/variables';
 
 .login {
   display: flex;
@@ -15,7 +7,6 @@ $ash: #92b8b9;
   .wrapper {
     height: 400px;
     width: 900px;
-    // background-color: #fff;
     box-shadow: 0 0 30px #f1f1f1;
     display: flex;
     align-items: stretch;
@@ -62,7 +53,7 @@ $ash: #92b8b9;
     }
 
     button {
-      max-width: 150px;
+      max-width: 170px;
     }
   }
 }

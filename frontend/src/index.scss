@@ -1,3 +1,5 @@
+@import './styles/variables';
+
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +8,3 @@
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
-
-$lightestGray: #F8F8F8;
-$lightGray: #e8e6e6;
-$medGray: #aeaeae;
-$navGray: #636363;
-$plusRed: #fa3150;
-
-$darkHeading: #292929;
-$starYellow: #ffb71b;
-$ash: #92B8B9;

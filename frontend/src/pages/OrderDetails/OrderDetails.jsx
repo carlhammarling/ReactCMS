@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "./OrderDetails.scss";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import OrderLineProduct from "../../components/OrderLineProduct/OrderLineProduct";
 import OrderList from "../OrderList/OrderList";
+import { UserContext } from "../../contexts/UserContext";
 
 const OrderDetails = () => {
   const token = localStorage.getItem("token");
+
+  const { user } = useContext(UserContext)
+
+  if(!user) {
+    return <Navigate to='/' replace />
+  }
 
   const { id } = useParams();
 
@@ -57,9 +64,9 @@ const OrderDetails = () => {
 
         .then((res) => {
           if (res.status == 201) {
-            // Showing success-message for 2seconds
-            setSuccess(true);
+            // Showing success-message for 1seconds
             setButtonClicked(false);
+            setSuccess(true);
             setTimeout(() => {
               setSuccess(false);
             }, 1000);
@@ -70,17 +77,23 @@ const OrderDetails = () => {
     }
   }, [buttonClicked, oneOrder]);
 
+  if(!oneOrder) {
+    return
+  }
+
   return (
     <div className="orderList">
       <div className="orderListContainer">
         <div className="summaryHeader">
           <h1>Order Summary</h1>
+          
           <button
             className={`${success ? "success" : ""} redBtn`}
             onClick={handlePending}
           >
-            {success ? "Order updated" : "Mark as Delivered"}
+            {success ? "Order updated" : 'Change order status'}
           </button>
+          
         </div>
         {oneOrder && (
           <div className="orderSummary">

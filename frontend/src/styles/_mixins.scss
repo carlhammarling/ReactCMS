@@ -1,0 +1,62 @@
+@import './variables';
+
+@mixin redButton {
+  height: 48px;
+  min-width: 170px;
+  padding-inline: 22px;
+  border: 0;
+  font-size: 16px;
+  color: white;
+  background-color: $darkHeading;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.4s;
+
+  &:hover {
+    background-color: $plusRed;
+  }
+}
+
+@mixin whiteBtn {
+  background-color: white;
+  border: 1px solid $lightGray;
+  height: 48px;
+  min-width: 170px;
+  padding-inline: 22px;
+  font-size: 16px;
+  transition: 0.4s;
+  margin-bottom: 26px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: white;
+    background-color: $darkHeading;
+    border: 1px solid $darkHeading;
+  }
+}
+
+@mixin warningBtn {
+  height: 48px;
+  min-width: 170px;
+  padding-inline: 22px;
+  border: 0;
+  font-size: 16px;
+  color: white;
+  background-color: $plusRed;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.4s;
+
+  &:hover {
+    background-color: $plusRedFade;
+  }
+}

@@ -1,39 +1,40 @@
-import { useState} from "react";
+import { useState } from "react";
 import "./OneProduct.scss";
-import { useParams, useNavigate} from 'react-router-dom'
-import axios from 'axios'
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const OneProduct = ({ product, setShowInputs }) => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const { id } = useParams();
 
-  const navigate = useNavigate()
-    const token = localStorage.getItem("token");
-    const { id } = useParams();
+  const [success, setSuccess] = useState(false);
 
-  const [success, setSuccess] = useState(false)
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const handleDelete = (e) => {
-    e.preventDefault()
-    axios.delete("http://localhost:8080/api/products/" + id, {
+    e.preventDefault();
+    axios
+      .delete("http://localhost:8080/api/products/" + id, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      
-    .then((res) => {
-      if(res.status == 200) {
-        //Showing success-message for 2seconds
-        setSuccess(true)
-        setTimeout(() => {
-            setSuccess(false);
-            setShowInputs(state => !state);
-            navigate('/productlist')
-        }, 1000)
 
-        
-    }
-    })
-    .catch((error) => console.error(error));
-  }
+      .then((res) => {
+        if (res.status == 200) {
+          //Showing success-message for 2seconds
+          setSuccess(true);
+          setTimeout(() => {
+            setShowConfirm(false);
+            setSuccess(false);
+            setShowInputs((state) => !state);
+            navigate("/productlist");
+          }, 1000);
+        }
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <>
@@ -68,20 +69,37 @@ const OneProduct = ({ product, setShowInputs }) => {
         </div>
       </div>
 
-      <div className="buttons">
-        <button
-          className="whiteBtn"
-          onClick={() => setShowInputs((state) => !state)}
-        >
-          Edit Product
-        </button>
-        <button
-          className={`${success ? "success" : ""} redBtn`}
-          onClick={handleDelete}
-        >
-          {success ? "Deleted from DB" : "Delete Product"}
-        </button>
-      </div>
+      {showConfirm ? (
+        <div className="buttons">
+          <button
+            className="whiteBtn"
+            onClick={() => setShowConfirm(false)}
+          >
+            Back
+          </button>
+          <button
+            className={`${success ? "success" : ""} warningBtn`}
+            onClick={handleDelete}
+          >
+            {success ? "Deleted from DB" : "Click to confirm"}
+          </button>
+        </div>
+      ) : (
+        <div className="buttons">
+          <button
+            className="whiteBtn"
+            onClick={() => setShowInputs((state) => !state)}
+          >
+            Edit Product
+          </button>
+          <button
+            className="redButton"
+            onClick={() => setShowConfirm((state) => !state)}
+          >
+            Delete Product
+          </button>
+        </div>
+      )}
     </>
   );
 };

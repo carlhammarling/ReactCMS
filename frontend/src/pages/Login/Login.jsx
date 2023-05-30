@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import RedBtn from "../../components/Buttons/RedBtn/RedBtn";
 import "./Login.scss";
+import { UserContext } from "../../contexts/UserContext";
 
-function Login({ user, setUser }) {
+function Login() {
   const navigate = useNavigate();
+
+  const { setUser } = useContext(UserContext)
 
   const [formData, setFormData] = useState({
     email: "",
@@ -61,11 +63,6 @@ function Login({ user, setUser }) {
     }
   };
 
-  //Logging user when updated.
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   return (
     <div className="login">
       <div className="wrapper">
@@ -96,7 +93,7 @@ function Login({ user, setUser }) {
           <div className="header">
             {error ? <p className="error">{error}</p> : <p>Please Login To Your Account</p>}
           </div>
-          <RedBtn text="Login" />
+          <button className="redBtn">Login</button>
           {/* <button type="submit" id="btn-submit">Submit</button> */}
         </form>
       </div>

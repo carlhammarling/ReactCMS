@@ -1,27 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Navigate, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./ProductDetails.scss";
-import RedBtn from "../../components/Buttons/RedBtn/RedBtn";
-import WhiteBtn from "../../components/Buttons/WhiteBtn/WhiteBtn";
 import OneProduct from "../../components/OneProduct/OneProduct";
 import EditProductForm from "../../components/EditProductForm/EditProductForm";
+import { UserContext } from "../../contexts/UserContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
 
-  const [product, setProduct] = useState([]);
+  const { user } = useContext(UserContext)
+
+  if(!user) {
+    return <Navigate to='/' replace />
+  }
+
+  const [product, setProduct] = useState(null);
 
   const [showInputs, setShowInputs] = useState(false);
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/products/" + id).then((res) => {
       console.log(res.data);
-      setProduct(res.data);
+        setProduct(res.data);
     });
     console.log(product);
   }, [showInputs]);
 
+  if(!product) {
+    return
+  }
   //Otherwise show this
   return (
     <div className="productDetails">

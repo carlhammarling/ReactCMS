@@ -10,7 +10,7 @@ const AddProductForm = () => {
     const { id } = useParams();
 
     const [success, setSuccess] = useState(false)
-
+    const [badReq, setBadReq] = useState(false)
 
     const [newProduct, setNewProduct] = useState({
         name: "",
@@ -44,7 +44,8 @@ const AddProductForm = () => {
         .then((res) => {
             console.log(res)
             if(res.status == 200) {
-                //Showing success-message for 1second
+                //Showing success-message for 1second in button
+                setBadReq(false)
                 setSuccess(true)
                 setTimeout(() => {
                     setSuccess(false);
@@ -54,7 +55,12 @@ const AddProductForm = () => {
                 
             }
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          //Shows error message to user.
+          if(error.response.status == 400) {
+            setBadReq(true)
+          }
+        });
         
         
     }
@@ -93,8 +99,11 @@ const AddProductForm = () => {
         >
           {success ? "Save Successfull" : "Save Product"}
         </button>
+
+
         
       </div>
+        {badReq ? <p className='error'>Please fill in all forms!</p> : <p></p>}
     </form>
 
   )

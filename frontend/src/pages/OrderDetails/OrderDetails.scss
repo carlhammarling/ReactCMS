@@ -1,13 +1,5 @@
-$lightestGray: #f8f8f8;
-$lightGray: #e8e6e6;
-$medGray: #aeaeae;
-$navGray: #636363;
-$plusRed: #fa3150;
-
-$darkHeading: #292929;
-$starYellow: #ffb71b;
-$ash: #92b8b9;
-$successGreen: #06c595;
+@use '../../styles/mixins';
+@import '../../styles/variables';
 
 .orderList {
   display: flex;
@@ -15,106 +7,91 @@ $successGreen: #06c595;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 2rem;
 
   .orderListContainer {
     width: 900px;
     padding: 1rem;
-    // border: 1px solid $lightGray;
     box-shadow: 0 0 30px #f8f8f8;
     color: #636363;
-  }
 
-  .summaryHeader {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 5rem;
-    border-bottom: 1px solid $lightGray;
 
-    .redBtn {
-      height: 48px;
-      min-width: 180px;
-      padding-inline: 22px;
-      border: 0;
-      font-size: 16px;
-      color: white;
-      background-color: $darkHeading;
-      cursor: pointer;
-
-      transition: 0.4s;
-
-      &:hover {
-        background-color: $plusRed;
+    .summaryHeader {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 5rem;
+      border-bottom: 1px solid $lightGray;
+  
+      .redBtn {
+        @include mixins.redButton;
+        min-width: 200px;
+      }
+  
+      .success {
+        background-color: $successGreen !important;
       }
     }
-
-    .success {
-      background-color: $successGreen !important;
+  
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
     }
-  }
-
-  h1 {
-    font-size: 24px;
-    font-weight: 600;
-  }
-
-  .orderSummary {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 5rem;
-    border-bottom: 1px solid $lightGray;
-    color: $navGray;
-
-    p {
-      font-size: 16px;
-      font-weight: 400;
+  
+    .orderSummary {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 5rem;
+      border-bottom: 1px solid $lightGray;
+      color: $navGray;
+  
+      p {
+        font-size: 16px;
+        font-weight: 400;
+      }
+  
+      .summaryLine {
+        margin-block: 1rem;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+      }
+  
     }
-
-    .summaryLine {
-      margin-block: 1rem;
+  
+    .oneOrderLineDescription {
       display: grid;
-      grid-template-columns: 2fr 3fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      padding: 1rem;
+      height: 50px;
+  
+      border-bottom: 1px solid $lightGray;
+      justify-content: space-between;
+      align-items: center;
+      justify-items: center;
+  
+      &.noLine {
+        border-bottom: 0px solid $lightGray;
+      }
+  
+      p {
+        font-size: 18px;
+        font-weight: 600;
+      }
     }
-    // .summaryLine {
-    //   margin-block: 1rem;
-    //   display: flex;
-    //   justify-content: space-between;
-    //   width: 80%;
-    // }
-  }
-
-  .oneOrderLineDescription {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    padding: 1rem;
-    height: 50px;
-
-    border-bottom: 1px solid $lightGray;
-    justify-content: space-between;
-    align-items: center;
-    justify-items: center;
-
-    &.noLine {
-      border-bottom: 0px solid $lightGray;
-    }
-
-    p {
-      font-size: 18px;
-      font-weight: 600;
-    }
-  }
-  .orderLineTotal {
-    display: flex;
-    padding: 1rem;
-    height: 50px;
-    justify-content: flex-end;
-    align-items: center;
-    justify-items: center;
-    margin-right: 3rem;
-
-    p {
-      font-size: 18px;
-      font-weight: 600;
-      color: $plusRed;
+    .orderLineTotal {
+      display: flex;
+      padding: 1rem;
+      height: 50px;
+      justify-content: flex-end;
+      align-items: center;
+      justify-items: center;
+      margin-right: 3rem;
+  
+      p {
+        font-size: 18px;
+        font-weight: 600;
+        color: $plusRed;
+      }
     }
   }
+
 }

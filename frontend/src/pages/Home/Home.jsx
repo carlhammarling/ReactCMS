@@ -8,7 +8,7 @@ const Home = () => {
       <h1>Welcome to Bmarketo admin page</h1>
       <ul>
         <li>
-          <NavLink to="/">LOGIN TO CONTINUE</NavLink>{" "}
+          <NavLink to="/login">LOGIN TO CONTINUE</NavLink>{" "}
         </li>
       </ul>
     </div>

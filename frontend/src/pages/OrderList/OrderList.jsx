@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "./OrderList.scss";
 import OrderLine from "../../components/OrderLine/OrderLine";
+import { UserContext } from "../../contexts/UserContext";
+import { Navigate } from "react-router-dom";
 
 const OrderList = () => {
   const token = localStorage.getItem("token");
+
+  const { user } = useContext(UserContext)
+
+  if(!user) {
+    return <Navigate to='/' replace />
+  }
 
   const [orders, setOrders] = useState([])
 
