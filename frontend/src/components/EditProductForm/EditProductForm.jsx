@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import './EditProductForm.scss'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const EditProductForm = ({product, setShowInputs}) => {
 
-    const navigate = useNavigate()
     const token = localStorage.getItem("token");
     const { id } = useParams();
 
@@ -44,7 +43,7 @@ const EditProductForm = ({product, setShowInputs}) => {
         .then((res) => {
             console.log(res)
             if(res.status == 200) {
-                //Showing success-message for 2seconds
+                //Showing success-message for 1seconds
                 setSuccess(true)
                 setTimeout(() => {
                     setSuccess(false);
@@ -59,11 +58,12 @@ const EditProductForm = ({product, setShowInputs}) => {
         
     }
 
+
   return (
     <form noValidate onSubmit={handleSubmit}>
         <div className="input-group">
             <label htmlFor="name">Title:</label>
-            <input id="name" onChange={handleChange} type="text" value={updatedProduct.name} />
+            <input data-testid="input" id="name" onChange={handleChange} type="text" value={updatedProduct.name} />
         </div>
         <div className="input-group">
             <label htmlFor="description">Description:</label>

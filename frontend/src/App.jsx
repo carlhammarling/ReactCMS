@@ -10,6 +10,7 @@ import OrderDetails from './pages/OrderDetails/OrderDetails'
 import AddProduct from './pages/AddProduct/AddProduct'
 import NotFound from './pages/NotFound/NotFound'
 import ContextLayout from './layouts/ContextLayout'
+import UserContextProvider, { UserContext } from './contexts/UserContext'
 
 const App = () => {
 
@@ -61,8 +62,9 @@ const App = () => {
   ])
 
   return (
-    
-    <RouterProvider router={router} />
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
   )
 }
 
